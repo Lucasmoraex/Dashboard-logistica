@@ -228,8 +228,204 @@
         margin-right: 5px;
         color: rgb(34, 143, 34);
        }
-       
 
+       /* filters */
+       .painel_right_body{
+        height: 100%;
+        position: relative;
+       }
+     
+       .painel_right_filter_content{
+        position: fixed;
+        right: 0;
+        top: 170px;
+        background: var(---gray_1);
+        margin-right: 6%;
+        border-radius: 10px;
+        border: 1px solid var(---border_color);
+        padding: 20px;
+        min-width: 260px;
+       }
+
+        .painel_right_filter_content input {
+            width: 14px;
+            height: 14px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            cursor: pointer;
+            vertical-align: -4px;
+            border: 1px solid;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 2px;
+            border-color: var(---border_color);
+        }
+    
+        .painel_right_filter_content input:checked {
+            border-color: #1773b0;
+            border-width: 0px;
+            background-color: #1773b0;
+        }
+        .filter_data_btn{
+          display: flex;
+          justify-content: space-between;
+          padding: 5px 10px;
+          border: 1px solid var(---border_color);
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .filter_data_btn .texts{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+        }
+        .filter_title{
+          color: var(---text_color_1);
+          margin-bottom: 10px;
+        }
+        .filter_data_btn .texts span{
+           color: var(---text_color_2);
+        }
+         .filter_data_btn .icon i{
+           color: var(---text_color_2);
+        }
+        .filter_status{
+          margin-top: 20px;
+        }
+        .show_more_hide{
+          display: none;
+        }
+        .btn_show_more{
+           color: var(---text_color_2);
+           margin-top: 10px;
+           display: block;
+           cursor: pointer;
+        }
+        .filter_operator_input label,.filter_status_input label,.filter_shipping_company_input label{
+          color: var(---text_color_2);
+          margin-left: 5px;
+          cursor: pointer;
+        }
+        .filter_operator_input,.filter_shipping_company_input,.filter_status_input {
+            padding: 5px 0;
+        }
+        .filter_operator,.filter_shipping_company{
+          margin-top: 20px;
+        }
+        .hide_painel{
+          display: none;
+        }
+        /* painel filter date */
+        .painel_filter_date{
+          position: fixed;
+          right: 6%;
+          top: 170px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          border-radius: 10px;
+          background: var(---gray_1);
+          border: 1px solid var(---border_color);
+          max-width: 650px;
+        }
+        .painel_filter_date_pressets {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+          padding-left: 20px;
+        }
+        .painel_filter_date_pressets button{
+          background: transparent;
+          border: none;
+          text-align: start;
+          padding: 10px 0;
+          color: var(---text_color_1);
+          cursor: pointer;
+        }
+        .painel_filter_date_infos{
+          display: flex;
+          justify-content: space-around;
+          width: 60;
+          padding-right: 8px;
+        }
+        .painel_filter_dates_value{
+          margin-top: 30px;
+        }
+        .calendar-grid{
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+        }
+        .calendar-grid div {
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            color: var(---text_color_1);
+        }
+        .painel_filter_dates_header{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 30px;
+          padding: 0 20px;
+        }
+        .painel_filter_dates_header input{
+          width: 34%;
+          background: transparent;
+          border: 1px solid var(---border_color);
+          padding: 5px 10px;
+          border-radius: 10px;
+        }
+        .painel_filter_dates_header input::placeholder{
+           color: var(---text_color_2);
+           text-align: center;
+        }
+        .painel_filter_dates_header button,.painel_filter_dates_preview button{
+          background: transparent;
+          border: none;
+          color: var(---text_color_2);
+          cursor: pointer;
+        }
+        .painel_filter_dates_preview button{
+          cursor: pointer;
+        }
+        .painel_filter_dates_preview{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 21px;
+        }
+        #current-month{
+           color: var(---text_color_1);
+        }
+        .painel_filter_date_btns{
+          width: 100%;
+          margin-top: 20px;
+          border-top:1px solid var(---border_color);
+        }
+        .painel_filter_date_btns .btns{
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 20px 20px 0 0;
+         
+        }
+        .painel_filter_date_btns .btns span{
+          padding: 5px 20px;
+          border-radius: 10px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .painel_filter_date_btn_apply{
+          background: var(---text_color_1);
+        }
+        .painel_filter_date_btn_cancel{
+          color: var(---text_color_2);
+        }
+    
     </style>
 </head>
 <body>
@@ -282,6 +478,215 @@
                 </div>
             </div>
             <div class="painel_right_body">
+              <!-- filter painel -->
+                <div class="painel_right_filter_data">
+                  <!-- filter list -->
+                  <div class="painel_right_filter_content hide_painel">
+                    <!-- filter for date -->
+                    <div class="filter_data">
+                      <div class="filter_types">
+                        <div class="filter_type_date filter_type">
+                          <h2 class="filter_title">Data</h2>
+                          <div class="filter_data_btn">
+                            <div class="icon">
+                              <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <div class="texts">
+                              <span class="dataStart">24/07/2024</span>
+                              <span>→</span>
+                              <span class="dataEnd">24/07/2024</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- filter for status -->
+                    <div class="filter_status">
+                      <h2 class="filter_title">Status</h2>
+                      <form>
+                        <div class="filter_status_input">
+                          <input checked type="radio" id="emitida" name="emitida">
+                          <label for="emitida">Emitida DANFE</label>
+                        </div>
+                        <div class="filter_status_input">
+                          <input type="radio" id="status_pendente" name="pendente">
+                          <label for="status_pendente">Pendente</label>
+                        </div>
+                        <div class="filter_status_input">
+                          <input type="radio" id="status_cancelada" name="cancelada">
+                          <label for="status_cancelada">Cancelada</label>
+                        </div>
+                        <div class="filter_status_input">
+                          <input type="radio" id="autorizada" name="autorizada">
+                          <label for="autorizada">Autorizada</label>
+                        </div>                                    
+                        <div class="filter_status_show_more show_more show_more_hide">
+                            <div class="filter_status_input">
+                              <input type="radio" id="aguardando_recibo" name="aguardando_recibo">
+                              <label for="aguardando_recibo">Aguardando recibo</label>
+                            </div>
+                            <div class="filter_status_input">
+                              <input type="radio" id="rejeitada" name="rejeitada">
+                              <label for="rejeitada">Rejeitada</label>
+                            </div>
+                            <div class="filter_status_input">
+                              <input type="radio" id="aguardando_protocolo" name="aguardando_protocolo">
+                              <label for="aguardando_protocolo">Aguardando protocolo</label>
+                            </div>
+                            <div class="filter_status_input">
+                              <input type="radio" id="denegada" name="denegada">
+                              <label for="denegada">Denegada</label>
+                            </div>
+                            <div class="filter_status_input">
+                              <input type="radio" id="consulta" name="consulta">
+                              <label for="consulta">Consulta situação</label>
+                            </div>
+                            <div class="filter_status_input">
+                              <input type="radio" id="bloqueada" name="bloqueada">
+                              <label for="bloqueada">Bloqueada</label>
+                            </div>
+                        </div>
+                        <span class="btn_show_more btn_show_more_status">Mostrar mais</span>
+                      </form>
+                    </div>
+                    <!-- filter for operator -->
+                    <div class="filter_operator">
+                      <h2 class="filter_title">Operador</h2>
+                      <form>
+                        <div class="filter_operator_input">
+                          <input checked type="radio" id="todos" name="todos">
+                          <label for="todos">Todos</label>
+                        </div>
+                        <div class="filter_operator_input">
+                          <input type="radio" id="vapt" name="vapt">
+                          <label for="vapt">VAPT</label>
+                        </div>
+                        <div class="filter_operator_input">
+                          <input type="radio" id="vandemmia" name="vandemmia">
+                          <label for="vandemmia">Vandemmia</label>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- filter for shipping company -->
+                    <div class="filter_shipping_company">
+                      <h2 class="filter_title">Transportadora</h2>
+                      <form>
+                        <div class="filter_shipping_company_input">
+                          <input checked type="radio" id="todos" name="todos">
+                          <label for="todos">Todos</label>
+                        </div>
+                        <div class="filter_shipping_company_input">
+                          <input type="radio" id="movvi" name="movvi">
+                          <label for="movvi">Movvi</label>
+                        </div>
+                        <div class="filter_shipping_company_input">
+                          <input type="radio" id="expresso" name="expresso">
+                          <label for="expresso">Expresso São Miguel</label>
+                        </div>
+                        <div class="filter_shipping_company_input">
+                          <input type="radio" id="solistica" name="solistica">
+                          <label for="solistica">Solistica</label>
+                        </div>                     
+                        <div class="filter_shipping_company_show_more show_more show_more_hide">
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="jamef" name="jamef">
+                            <label for="jamef">Jamef</label>
+                          </div>
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="amazon" name="amazon">
+                            <label for="amazon">Amazon</label>
+                          </div>
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="mercado_livre" name="mercado_livre">
+                            <label for="mercado_livre">Mercado Livre</label>
+                          </div>
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="comsil" name="comsil">
+                            <label for="comsil">Comsil</label>
+                          </div>
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="postales" name="postales">
+                            <label for="postales">Postales</label>
+                          </div>
+                          <div class="filter_shipping_company_input">
+                            <input type="radio" id="valdelir" name="valdelir">
+                            <label for="valdelir">Valdelir Frederico</label>
+                          </div>
+                        </div>   
+                        <span class="btn_show_more btn_show_more_company">Mostrar mais</span>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- painel filter date -->
+                   <div class="painel_filter_date hide_painel">
+                    <div class="painel_filter_date_infos">
+                      <div class="painel_filter_date_pressets date-picker-presets">
+                        <button data-preset="ontem">Ontem</button>
+                        <button data-preset="ultimos7dias">Últimos 7 dias</button>
+                        <button data-preset="ultimos30dias">Últimos 30 dias</button>
+                        <button data-preset="ultimos90dias">Últimos 90 dias</button>
+                        <button data-preset="ultimos365dias">Últimos 365 dias</button>
+                        <button data-preset="ultimoMes">Último mês</button>
+                        <button data-preset="ultimos12meses">Últimos 12 meses</button>
+                        <button data-preset="anoPassado">Ano passado</button>
+                      </div>
+                      <div class="painel_filter_dates">
+                        <div class="painel_filter_dates_header">
+                          <input type="text" id="start-date" placeholder="Data de Início">
+                          <button id="next-month">&rarr;</button>
+                          <input type="text" id="end-date" placeholder="Data de Fim">
+                        </div>
+                        <div class="painel_filter_dates_preview">
+                          <button id="prev-month">&larr;</button>
+                          <span id="current-month">Julho de 2024</span>
+                          <button id="next-month">&rarr;</button>
+                        </div>
+                        <div class="painel_filter_dates_value">
+                          <div class="calendar-grid">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                            <div>5</div>
+                            <div>6</div>
+                            <div>7</div>
+                            <div>8</div>
+                            <div>9</div>
+                            <div>10</div>
+                            <div>11</div>
+                            <div>12</div>
+                            <div>13</div>
+                            <div>14</div>
+                            <div>15</div>
+                            <div>16</div>
+                            <div>17</div>
+                            <div>18</div>
+                            <div>19</div>
+                            <div>20</div>
+                            <div>21</div>
+                            <div>22</div>
+                            <div>23</div>
+                            <div>24</div>
+                            <div>25</div>
+                            <div>26</div>
+                            <div>27</div>
+                            <div>28</div>
+                            <div>29</div>
+                            <div>30</div>               
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="painel_filter_date_btns">
+                      <div class="btns">
+                        <span class="painel_filter_date_btn_cancel">Cancelar</span>
+                        <span class="painel_filter_date_btn_apply">Aplicar</span>
+                      </div>
+                    </div>
+                   </div>
+
+                </div>
+                <!-- data list -->
                 <table class="painel_right_content_header">
                     <thead>
                         <tr>
@@ -585,12 +990,65 @@
                         </tr>
                     </tbody>
                 </table>
-               <div class="painel_right_content"></div>
+               
             </div>
         </div>
     </main>
   </div>
   <script>
+
+    const input_status = document.querySelectorAll('.filter_status_input input');
+    const input_operator = document.querySelectorAll('.filter_operator_input input');
+    const input_shipping_company = document.querySelectorAll('.filter_shipping_company_input input');
+
+    inputNotChecked(input_status)
+    inputNotChecked(input_operator)
+    inputNotChecked(input_shipping_company)
+
+      function inputNotChecked(inputs){
+        inputs.forEach((radio) => {
+          radio.addEventListener('change', (e) => {
+            inputs.forEach((otherRadio) => {
+              if (otherRadio !== e.target) {
+                otherRadio.checked = false;
+              }
+            });
+          });
+        });
+      }
+
+    const btn_show_more = document.querySelectorAll('.btn_show_more')
+    btn_show_more.forEach((btn)=>{
+      btn.addEventListener('click',(e)=>{
+        const parent = e.target.parentNode
+        const listHidden = parent.querySelector('.show_more')
+        listHidden.classList.toggle('show_more_hide')
+        if (listHidden.classList.contains('show_more_hide')) {
+          e.target.innerHTML = 'Mostrar mais'
+        } else {
+          e.target.innerHTML = 'Mostrar menos'
+        }
+      })
+    })
+    const btn_add_filter = document.querySelector('.filter_add_event .add_text')
+    const painel_filter = document.querySelector('.painel_right_filter_content')
+    btn_add_filter.addEventListener('click',()=>{
+      painel_filter.classList.toggle('hide_painel')
+    })
+
+    const filter_data_btn = document.querySelector('.filter_data_btn')
+    const painel_filter_date = document.querySelector('.painel_filter_date')
+    filter_data_btn.addEventListener('click',(e)=>{
+      painel_filter.classList.add('hide_painel')
+      painel_filter_date.classList.remove('hide_painel')
+    })
+    var painel_filter_date_btn_cancel = document.querySelector('.painel_filter_date_btn_cancel')
+    painel_filter_date_btn_cancel.addEventListener('click', (e) => {
+      painel_filter_date.classList.add('hide_painel')
+      painel_filter.classList.remove('hide_painel')
+    })
+
+
     const button_filter = document.querySelector('.button_filter span')
     const filter_add_event = document.querySelector('.filter_add_event')
     const button_cancel = document.querySelector('.button_cancel')
@@ -603,6 +1061,8 @@
         filter_add_event.classList.add('button_cancel_hide')
         button_cancel.classList.add('button_cancel_hide')
         button_filter.classList.remove('button_cancel_hide')
+        painel_filter_date.classList.add('hide_painel')
+         painel_filter.classList.add('hide_painel')
     })
 
     document.addEventListener('DOMContentLoaded', (event) => {

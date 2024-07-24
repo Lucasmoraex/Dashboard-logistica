@@ -140,8 +140,8 @@ module.exports = {
                 orderId: undefined,
                 status: 6,
                 type: 1,
-                dateStart: setDateStart('2024', '06', '01'),
-                dateEnd: setDateEnd("2024", "07", "23")
+                dateStart: setDateStart('2024', '07', '01'),
+                dateEnd: setDateEnd("2024", "07", "24")
             };
 
             const invoiceBling = await invoices(data, tokenBling);
